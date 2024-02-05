@@ -38,6 +38,11 @@
     - debug:
         msg: "{{ droplet_ip }}"
 
+    - name: Write output to a file
+      copy:
+        content: "{{ droplet_ip }}"
+        dest: "./ip_address"
+
     - name: Add droplet to host group for configuration
       add_host:
         hostname: "{{ droplet_ip }}"

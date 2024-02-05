@@ -33,7 +33,14 @@ if ! ansible-galaxy collection list | grep -q community.digitalocean; then
   ansible-galaxy collection install community.digitalocean
 fi
 
+# Install doctl using Homebrew
+if ! command_exists doctl; then
+  echo "Installing doctl..."
+  brew install doctl
+fi
+
 # Print completion message
 echo "Setup complete. You can now run your Ansible playbook."
 
 ansible-playbook deploy.yml
+./update-dns.sh

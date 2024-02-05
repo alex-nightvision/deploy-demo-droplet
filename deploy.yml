@@ -7,6 +7,7 @@
     size: "s-2vcpu-4gb"
     image: "ubuntu-20-04-x64"
     ssh_key_fingerprint: "{{ lookup('env','MACHINE_KEY_DO_FINGERPRINT') }}"
+    oauth_token: "{{ lookup('env','DO_API_TOKEN') }}"
     domain: "nvtest.io"
     dns_records:
       - "javaspringvulny"
@@ -16,7 +17,7 @@
     - name: Ensure droplet exists
       community.digitalocean.digital_ocean_droplet:
         state: present
-        oauth_token: "{{ lookup('env','DO_API_TOKEN') }}"
+        oauth_token: "{{ oauth_token }}"
         name: "{{ droplet_name }}"
         region: "{{ region }}"
         size: "{{ size }}"
@@ -47,7 +48,7 @@
     # - name: Update DNS A records
     #   community.digitalocean.digital_ocean_domain_record:
     #     state: present
-    #     oauth_token: "{{ lookup('env','DO_API_TOKEN') }}"
+    #     oauth_token: "{{ oauth_token }}"
     #     domain: "{{ domain }}"
     #     type: A
     #     name: "{{ item }}"

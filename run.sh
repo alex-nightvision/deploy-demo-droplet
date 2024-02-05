@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Check if DO_API_TOKEN and MACHINE_KEY_DO_FINGERPRINT are set
 [ -z "$DO_API_TOKEN" ] && echo "Error: DO_API_TOKEN environment variable is not set." && exit 1

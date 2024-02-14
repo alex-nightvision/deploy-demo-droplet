@@ -2,6 +2,14 @@
 
 The `./run.sh` should handle all software installation, env var checks, file checks and running the playbook
 
+# Apps supported:
+
+- https://github.com/vulnerable-apps/vuln_django_play
+- https://github.com/vulnerable-apps/javaspringvulny
+- https://github.com/OWASP/railsgoat
+- https://github.com/alex-nightvision/owasp-webgoat-dot-net-docker
+- https://github.com/alex-nightvision/xss-fastapi
+
 # kube setup
 
 [Install agent notes](https://docs.datadoghq.com/containers/kubernetes/installation/?tab=operator)
@@ -25,3 +33,4 @@ helm install datadog -n datadog \
     --set datadog.processAgent.enabled=true \
     datadog/datadog --create-namespace
 ```
+

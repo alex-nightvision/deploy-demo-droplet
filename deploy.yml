@@ -66,11 +66,24 @@
   become: true
   vars:
     git_repos:
+      # http://vulndjangoplay.nvtest.io:8020
       - repo: "https://github.com/vulnerable-apps/vuln_django_play.git"
         dest: "/root/vuln_django_play"
+      # https://javaspringvulny.nvtest.io:9000
+      # https://javaspringvulny.nvtest.io
+      # also using postgres on port 5432
       - repo: "https://github.com/vulnerable-apps/javaspringvulny.git"
         dest: "/root/javaspringvulny"
-        # Add more repositories here as needed
+      # http://railsgoat.nvtest.io:3000/
+      # http://161.35.6.115:3000
+      - repo: "https://github.com/OWASP/railsgoat.git"
+        dest: "/root/railsgoat"
+      # http://goatdotnet.nvtest.io:8999
+      - repo: "https://github.com/alex-nightvision/owasp-webgoat-dot-net-docker.git"
+        dest: "/root/owasp-webgoat-dot-net-docker"
+      # port http://xssfastapi.nvtest.io:8000
+      - repo: "https://github.com/alex-nightvision/xss-fastapi.git"
+        dest: "/root/xss-fastapi"
 
   tasks:
     - name: Install Docker, Docker Compose, and Git

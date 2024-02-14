@@ -12,5 +12,9 @@ for app in $app_list; do
 	cd ~/$app
 	docker-compose down
 	sleep 5
+	# Check if the application is railsgoat and if so, run rails db:setup
+	if [ "$app" == "railsgoat" ]; then
+		docker-compose run web rails db:setup
+	fi
 	docker-compose up -d
 done

@@ -34,3 +34,6 @@ helm install datadog -n datadog \
     datadog/datadog --create-namespace
 ```
 
+# Droplet is max on CPU utilization
+
+This happens sometimes just refresh all the apps with the script `refresh-apps.sh`

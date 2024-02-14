@@ -108,3 +108,17 @@
       args:
         chdir: "{{ item.dest }}"
       loop: "{{ git_repos }}"
+
+    # Add tasks to copy and execute shell script
+    - name: Copy refresh-apps.sh script
+      copy:
+        src: ./refresh-apps.sh
+        dest: /root/refresh-apps.sh
+        mode: "u+x"  # Make the script executable
+
+    - name: Schedule the script to run once per day
+      cron:
+        name: "Run refresh-apps.sh daily"
+        minute: "0"
+        hour: "0"
+        job: "/root/refresh-apps.sh"

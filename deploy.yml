@@ -2,7 +2,7 @@
   hosts: localhost
   gather_facts: no
   vars:
-    droplet_name: "docker-compose-demos"
+    droplet_name: "docker-compose-demos3"
     region: "nyc1"
     size: "s-2vcpu-4gb"
     image: "ubuntu-20-04-x64"
@@ -84,6 +84,12 @@
       # port http://xssfastapi.nvtest.io:8000
       - repo: "https://github.com/alex-nightvision/xss-fastapi.git"
         dest: "/root/xss-fastapi"
+      # # port: http://localhost:9092
+      # - repo: "https://github.com/wurstmeister/kafka-docker.git"
+      #   dest: "/root/kafka-docker"
+      # :8080
+      - repo: "https://github.com/schenkd/nginx-ui.git"
+        dest: "/root/nginx-ui"
 
   tasks:
     - name: Install Docker, Docker Compose, and Git

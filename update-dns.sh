@@ -6,7 +6,7 @@ DOMAIN="nvtest.io"
 NEW_IP="$(cat ./ip_address)"
 
 # Find the record ID for the A record
-RECORD_IDS=$(doctl compute domain records list nvtest.io | grep -v "SOA" | grep -v "juice-shop" | grep "A" | awk '{print $1}')
+RECORD_IDS=$(doctl compute domain records list nvtest.io | grep -v "SOA" | grep -v "juice-shop" | grep -vi "crapi" | grep "A" | awk '{print $1}')
 
 if [ -z "$RECORD_IDS" ]; then
   echo "A record not found for $DOMAIN."

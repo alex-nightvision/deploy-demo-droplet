@@ -37,3 +37,7 @@ helm install datadog -n datadog \
 # Droplet is max on CPU utilization
 
 This happens sometimes just refresh all the apps with the script `refresh-apps.sh`
+
+# crapi
+
+https://github.com/OWASP/crAPI/blob/develop/docs/setup.md#kubernetes

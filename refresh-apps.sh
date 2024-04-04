@@ -18,3 +18,7 @@ for app in $app_list; do
 	fi
 	docker-compose up -d
 done
+
+# single containers
+docker rm -f dvna
+docker run --name dvna -p 9090:9090 -d appsecco/dvna:sqlite

@@ -90,6 +90,8 @@
       # http://nginxui.nvtest.io:8080/
       - repo: "https://github.com/schenkd/nginx-ui.git"
         dest: "/root/nginx-ui"
+    docker_deploy:
+      - "docker run --name dvna -p 9090:9090 -d appsecco/dvna:sqlite"
 
   tasks:
     - name: Install Docker, Docker Compose, and Git
@@ -114,6 +116,10 @@
       args:
         chdir: "{{ item.dest }}"
       loop: "{{ git_repos }}"
+
+    - name: Run docker deploy
+      shell: "{{ item }}"
+      loop: "{{ docker_deploy }}"
 
     # Add tasks to copy and execute shell script
     - name: Copy refresh-apps.sh script

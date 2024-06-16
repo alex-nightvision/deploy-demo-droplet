@@ -31,7 +31,21 @@ helm install datadog -n datadog \
     --set datadog.logs.containerCollectAll=true \
     --set datadog.apiKey="$DD_API_KEY" \
     --set datadog.processAgent.enabled=true \
+    --set datadog.apm.enabled=true \
     datadog/datadog --create-namespace
+
+# # update helm chart
+# helm upgrade datadog -n datadog \
+#     --set datadog.clusterName="public-firing-range" \
+#     --set datadog.site='us5.datadoghq.com' \
+#     --set datadog.clusterAgent.replicas='2' \
+#     --set datadog.clusterAgent.createPodDisruptionBudget='true' \
+#     --set datadog.logs.enabled=true \
+#     --set datadog.logs.containerCollectAll=true \
+#     --set datadog.apiKey="$DD_API_KEY" \
+#     --set datadog.processAgent.enabled=true \
+#     --set datadog.apm.enabled=true \
+#     datadog/datadog
 ```
 
 # Droplet is max on CPU utilization

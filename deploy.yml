@@ -90,6 +90,7 @@
       # http://nginxui.nvtest.io:8080/
       - repo: "https://github.com/schenkd/nginx-ui.git"
         dest: "/root/nginx-ui"
+      # http://vulnlab.nvtest.io:1337/
       - repo: "https://github.com/alex-nightvision/VulnLab.git"
         dest: "/root/VulnLab"
     docker_deploy:
